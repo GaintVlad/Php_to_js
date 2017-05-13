@@ -72,13 +72,11 @@
 <script src="../node_modules/angular-aria/angular-aria.js"></script>
 <script type="text/javascript" src="../node_modules/angular-material/angular-material.js"></script>
 
-<script src="./src/users/Users.js"></script>
-<script src="./src/users/SelectController.js"></script>
-
+<!--<script src="./src/users/Users.js"></script>-->
 <script type="text/javascript">
 
     angular
-        .module('starterApp', ['ngMaterial', 'users'])
+        .module('starterApp', ['ngMaterial'])
         .config(function ($mdThemingProvider, $mdIconProvider) {
 
             $mdThemingProvider.theme('default')
@@ -97,7 +95,7 @@
         });
 
 </script>
-
+<script src="scripts/SelectController.js"></script>
 
 </body>
 </html>

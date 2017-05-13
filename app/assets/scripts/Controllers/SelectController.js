@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module('users')
+        .module('starterApp')
         .controller('SelectController', ['$scope', function ($scope) {
 
             $scope.initOptions = function (phpJson) {
