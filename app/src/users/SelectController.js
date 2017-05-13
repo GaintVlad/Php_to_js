@@ -2,22 +2,29 @@
     angular
         .module('users')
         .controller('SelectController', ['$scope', function ($scope) {
-            $scope.users = [
-                { id: 1, name: 'Bob', weight: 5 },
-                { id: 2, name: 'Alice', weight: 2 },
-                { id: 3, name: 'Steve', weight: 7 }
-            ];
-            $scope.selectedModel = { id: 1, name: 'Bob', weight: 5 };
+
+            $scope.initOptions = function (phpJson) {
+                var arrOptions = [];
+                var obj = angular.fromJson(phpJson);
+                var inkr = 0;
+                for (var key in obj) {
+                    inkr++;
+                    var newObj = {"id": inkr, "name":key, "value":obj[key]};
+                    arrOptions.push(newObj);
+                }
+                $scope.arrVar = arrOptions;
+                $scope.selectedModel = arrOptions[0];
+            };
+
             var setWeight = function () {
                 $scope.arrWight = [];
-
                 var maxWight = 100;
-                var summ = $scope.selectedModel.weight;
+                var summ = $scope.selectedModel.value.weight;
                 while (summ <= maxWight) {
                     $scope.arrWight.push(summ);
-                    summ += $scope.selectedModel.weight;
+                    summ += $scope.selectedModel.value.weight;
                 }
-                $scope.selectedWeight = $scope.selectedModel.weight;
+                $scope.selectedWeight = $scope.selectedModel.value.weight;
             };
 
             $scope.$watch('selectedModel', function(newValue, oldValue) {
@@ -25,16 +32,6 @@
                     setWeight();
                 }
             }, true);
-
-            $scope.initOptions = function (phpJson) {
-                var arrOptions = [];
-                arrOptions.push(phpJson);
-                console.log(arrOptions);
-                $scope.arrVar = arrOptions;
-                //return arrOptions;
-            };
-
-           //console.log($scope.arrVar);
         }
         ]);
 })();
