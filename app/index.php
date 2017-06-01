@@ -10,7 +10,7 @@
 
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,700'>
     <link rel="stylesheet" href="../node_modules/angular-material/angular-material.css"/>
-    <link rel="stylesheet" href="assets/app.css"/>
+    <link rel="stylesheet" href="assets/styles/app.css"/>
 </head>
 
 <body ng-app="starterApp" ng-controller="SelectController as select">
@@ -60,11 +60,9 @@
     <div flex layout="row" layout-align="center center">
         <h4>Selected {{selectedModel.name}}: {{selectedWeight}}g</h4>
     </div>
-
-
 </div>
 <footer flex layout="row" layout-align="center center">
-    <p>This Footer</p>
+    <p>The Footer</p>
 </footer>
 
 <script src="../node_modules/angular/angular.js"></script>
@@ -73,29 +71,8 @@
 <script type="text/javascript" src="../node_modules/angular-material/angular-material.js"></script>
 
 <!--<script src="./src/users/Users.js"></script>-->
-<script type="text/javascript">
-
-    angular
-        .module('starterApp', ['ngMaterial'])
-        .config(function ($mdThemingProvider, $mdIconProvider) {
-
-            $mdThemingProvider.theme('default')
-                .primaryPalette('brown')
-                .accentPalette('red');
-
-            $mdIconProvider
-                .defaultIconSet("./assets/svg/avatars.svg", 128)
-                .icon("menu", "./assets/svg/menu.svg", 24)
-                .icon("share", "./assets/svg/share.svg", 24)
-                .icon("google_plus", "./assets/svg/google_plus.svg", 512)
-                .icon("hangouts", "./assets/svg/hangouts.svg", 512)
-                .icon("twitter", "./assets/svg/twitter.svg", 512)
-                .icon("phone", "./assets/svg/phone.svg", 512);
-
-        });
-
-</script>
-<script src="scripts/SelectController.js"></script>
+<script type="text/javascript" src="assets/scripts/app.js"></script>
+<script src="assets/scripts/Controllers/SelectController.js"></script>
 
 </body>
 </html>
